@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="A simple relaxation app" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="./manifest.webmanifest" />
+    <link rel="icon" href="./favicon.ico" />
+    <link rel="stylesheet" href="normalize.css" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Calmly</title>
+  </head>
+
+  <body>
+    <div class="input-box">
+      <p class="input-box__text">Breathe Cycle Settings</p>
+      <mark class="mark">Recommended : <span>5 - 4 - 7 - 8</span></mark>
+      <div class="input-box__group">
+        <label for="reps" class="input-box__label">Reps</label>
+        <button class="input-box__dec" data-minus>&minus;</button>
+        <input
+          class="input-box__input"
+          id="reps"
+          type="number"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          placeholder="5"
+          min="4"
+          max="8"
+          oninput="validity.valid||(value='');"
+          required
+        />
+        <button class="input-box__inc" data-plus>+</button>
+      </div>
+      <div class="input-box__group">
+        <label for="inhale" class="input-box__label">Inhale (sec)</label>
+        <button class="input-box__dec" data-minus>&minus;</button>
+        <input
+          class="input-box__input"
+          id="inhale"
+          type="number"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          placeholder="4"
+          min="4"
+          max="8"
+          oninput="validity.valid||(value='');"
+          required
+        />
+        <button class="input-box__inc" data-plus>+</button>
+      </div>
+      <div class="input-box__group">
+        <label for="hold" class="input-box__label">Hold (sec)</label>
+        <button class="input-box__inc" data-minus>&minus;</button>
+        <input
+          class="input-box__input"
+          id="hold"
+          type="number"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          placeholder="7"
+          min="4"
+          max="8"
+          oninput="validity.valid||(value='');"
+          required
+        />
+        <button class="input-box__inc" data-plus>+</button>
+      </div>
+      <div class="input-box__group">
+        <label for="exhale" class="input-box__label">Exhale (sec)</label>
+        <button class="input-box__dec" data-minus>&minus;</button>
+        <input
+          class="input-box__input"
+          id="exhale"
+          type="number"
+          inputmode="numeric"
+          pattern="[0-9]*"
+          placeholder="8"
+          min="4"
+          max="8"
+          oninput="validity.valid||(value='');"
+          required
+        />
+        <button class="input-box__inc" data-plus>+</button>
+      </div>
+      <button class="input-box__setBtn">Save and Continue</button>
+    </div>
+    <div class="snackbar"><span class="snackbar__msg"></span></div>
+    <script src="./settings.js"></script>
+  </body>
+</html>

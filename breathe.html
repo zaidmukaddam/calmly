@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="./manifest.webmanifest">
+    <meta name="description" content="A simple relaxation app">
+    <link rel="icon" href="./favicon.ico">
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Calmly</title>
+</head>
+
+<body>
+    <div class="loader-container"><svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"
+            preserveAspectRatio="xMidYMid" class="lds-ripple" style="background: 0 0">
+            <circle cx="50" cy="50" r="4.719" fill="none" stroke="#ffd200" stroke-width="2">
+                <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="3"
+                    keySplines="0 0.2 0.8 1" begin="-1.5s" repeatCount="indefinite" />
+                <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="3"
+                    keySplines="0.2 0 0.8 1" begin="-1.5s" repeatCount="indefinite" />
+            </circle>
+            <circle cx="50" cy="50" r="27.591" fill="none" stroke="#f7971e" stroke-width="2">
+                <animate attributeName="r" calcMode="spline" values="0;40" keyTimes="0;1" dur="3"
+                    keySplines="0 0.2 0.8 1" begin="0s" repeatCount="indefinite" />
+                <animate attributeName="opacity" calcMode="spline" values="1;0" keyTimes="0;1" dur="3"
+                    keySplines="0.2 0 0.8 1" begin="0s" repeatCount="indefinite" />
+            </circle>
+        </svg></div>
+    <div class="breathe">
+        <div class="breathe__logo-box">Breathe<br>Listen<br>Relax</div>
+        <div class="breathe__repetitions">00</div>
+        <div class="breathe__instructions">Tap<br>Circle To<br>Start / Reset</div>
+        <div class="breathe__bubble"></div>
+        <div class="breathe__timer">00</div>
+    </div>
+    <div class="toast"><span class="toast__msg">Use &#127911; For The Best Experience </span><span title="close"
+            class="toast__close">&times;</span></div>
+    <script src="app.js"></script>
+</body>
+
+</html>

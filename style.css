@@ -1,0 +1,476 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  touch-action: manipulation;
+}
+body,
+html {
+  height: 100%;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.header {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.calmly-logo {
+  width: 5rem;
+  height: 5rem;
+  margin-right: 1rem;
+}
+.completed__logo-link,
+.error__logo-link,
+.header__logo-link {
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 4rem;
+}
+.header__text-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2.2rem;
+  text-align: center;
+}
+.heading-primary {
+  text-align: center;
+}
+.heading-primary--main {
+  font-size: 4rem;
+  display: block;
+  margin-bottom: 3.5rem;
+}
+.heading-primary--sub {
+  display: block;
+  font-size: 2.1rem;
+  margin-bottom: 5rem;
+}
+.btn-container {
+  display: flex;
+  margin-bottom: 5rem;
+}
+.input-box {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin-top: 2rem;
+  padding: 3rem 2rem;
+  font-weight: 700;
+}
+.input-box__text {
+  font-size: 3.4rem;
+  margin-bottom: 3rem;
+}
+.mark {
+  font-size: 2.2rem;
+  padding: 1.1rem;
+  border-radius: 15px;
+  margin-bottom: 2rem;
+  background-color: #ffd200;
+  border: 2px solid #fff;
+}
+.mark > span {
+  display: inline-block;
+}
+.input-box__group {
+  margin: 2rem 0;
+}
+.input-box__label {
+  display: block;
+  font-size: 2.4rem;
+  margin-bottom: 0.9rem;
+  color: #ffd200;
+}
+.input-box__input {
+  width: 10rem;
+  padding: 1.3rem 2.2rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 3px;
+  border: 3px solid transparent;
+  text-align: center;
+}
+.input-box__input {
+  -moz-appearance: textfield;
+}
+.input-box__input::-webkit-inner-spin-button,
+.input-box__input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.input-box__input:invalid {
+  border: 3px solid #c74243;
+}
+.button__container {
+  margin: 0 0;
+}
+.input-box__setBtn {
+  padding: 1.5rem 5rem;
+  font-size: 2.4rem;
+  font-weight: 700;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  margin: 2rem 0;
+  background: #ffd747;
+  cursor: pointer;
+}
+.input-box__dec,
+.input-box__inc {
+  background-color: #fff;
+  display: inline-block;
+  font-size: 2.6rem;
+  font-weight: 700;
+  border: none;
+  border-radius: 2px;
+  border: 3px solid transparent;
+  padding: 1.3rem 2.2rem;
+  margin: 0 0.5rem;
+}
+.snackbar {
+  background-color: #c74243;
+  font-size: 2rem;
+  font-weight: 600;
+  min-width: 30rem;
+  visibility: hidden;
+  text-align: center;
+  border-radius: 5px;
+  padding: 1.7rem;
+  position: fixed;
+  z-index: 2;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 3rem;
+}
+.snackbar-update {
+  min-width: 30rem;
+  background-color: #ffd200;
+  text-align: center;
+  color: #000;
+  font-size: 2.1rem;
+  position: fixed;
+  top: 3rem;
+  z-index: 2;
+  left: 50%;
+  transform: translate(-50%, 0);
+  border-radius: 5px;
+  padding: 1.5rem 3rem;
+  line-height: 1.8;
+  visibility: hidden;
+}
+.snackbar-update__btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 3px;
+  background-color: #2c3e50;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.snackbar-update.show {
+  visibility: visible;
+  -webkit-animation: fadeinUpdate 0.3s cubic-bezier(0.37, 0, 0.63, 1);
+  animation: fadeinUpdate 0.3s cubic-bezier(0.37, 0, 0.63, 1);
+}
+@-webkit-keyframes fadeinUpdate {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 3rem;
+    opacity: 1;
+  }
+}
+@keyframes fadeinUpdate {
+  from {
+    top: 0;
+    opacity: 0;
+  }
+  to {
+    top: 3rem;
+    opacity: 1;
+  }
+}
+.snackbar.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.3s cubic-bezier(0.37, 0, 0.63, 1);
+  animation: fadein 0.3s cubic-bezier(0.37, 0, 0.63, 1);
+}
+@-webkit-keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 3rem;
+    opacity: 1;
+  }
+}
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 3rem;
+    opacity: 1;
+  }
+}
+.btn,
+.completed-btn,
+.error-btn {
+  font-size: 2.5rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 1.1rem 3rem;
+  background: #ffd747;
+  color: #000;
+  border: 3px solid #fff;
+  border-radius: 25px;
+  outline: 0;
+  cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+.maker {
+  font-size: 2rem;
+  opacity: 0.8;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.maker-link {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 2px solid #ffd200;
+}
+.breathe {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.3;
+}
+.breathe__instructions,
+.breathe__logo-box,
+.breathe__repetitions,
+.breathe__timer {
+  position: absolute;
+  font-weight: 700;
+}
+.breathe__logo-box {
+  top: 2rem;
+  left: 2rem;
+  font-size: 3.5rem;
+}
+.breathe__instructions {
+  bottom: 2rem;
+  left: 2rem;
+  font-size: 3.5rem;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.breathe__instructions.fade {
+  animation: textAnimation 0.5s ease-out;
+  -webkit-animation: textAnimation 0.5s ease-out;
+}
+.breathe__repetitions {
+  top: 2rem;
+  right: 2rem;
+  font-size: 11rem;
+}
+.breathe__timer {
+  bottom: 2rem;
+  right: 2rem;
+  font-size: 8rem;
+}
+.breathe__bubble {
+  width: 20rem;
+  height: 20rem;
+  background: linear-gradient(to right, #f7971e, #ffd200);
+  border-radius: 50%;
+}
+@-webkit-keyframes textAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes textAnimation {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@-webkit-keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.7);
+  }
+}
+@keyframes grow {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.7);
+  }
+}
+@-webkit-keyframes shrink {
+  from {
+    transform: scale(1.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes shrink {
+  from {
+    transform: scale(1.7);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+.completed,
+.error {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  line-height: 1.4;
+}
+.completed__text-box,
+.error__text-box {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 2rem;
+}
+.completed__text,
+.error__text {
+  font-size: 4rem;
+  margin-bottom: 5rem;
+  font-weight: 700;
+}
+.toast {
+  height: 6.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.9rem;
+  background: #ffb347;
+  color: #000;
+  position: fixed;
+  bottom: -7rem;
+  padding: 0 2rem;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transition: transform 0.3s cubic-bezier(0.5, 0, 0.5, 1);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+.toast.close {
+  transform: translateY(7rem);
+}
+.toast__msg {
+  font-size: 2.1rem;
+}
+.toast__close {
+  margin-left: 1rem;
+  font-size: 4.1rem;
+  cursor: pointer;
+}
+@-webkit-keyframes slideUp {
+  100%,
+  5%,
+  80% {
+    bottom: 0;
+  }
+}
+@keyframes slideUp {
+  100%,
+  5%,
+  80% {
+    bottom: 0;
+  }
+}
+.loader-container {
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  position: fixed;
+  display: grid;
+  place-items: center;
+  transition: opacity 0.3s linear;
+  pointer-events: none;
+  z-index: 100;
+}
+@media (max-width: 56.25em) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  html {
+    font-size: 78.75%;
+  }
+  .breathe__bubble {
+    width: 30rem;
+    height: 30rem;
+  }
+}
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+@media (max-width: 21.875em) {
+  html {
+    font-size: 65%;
+  }
+}
+@media (min-width: 112.5em) {
+  html {
+    font-size: 100%;
+  }
+  .breathe__bubble {
+    width: 35rem;
+    height: 35rem;
+  }
+}
